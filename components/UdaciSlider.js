@@ -11,7 +11,7 @@ const UdaciSlider = ({ max, unit, step, value, onChange }) => {
                 maximumValue={max}
                 minimumValue={0}
             />
-            <View>
+            <View> 
                 <Text>{value}</Text>
                 <Text>{unit}</Text>
             </View>
