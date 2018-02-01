@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         marginRight: 20
     }
 })
+
 export function getMetricMetaInfo (metric) {
     const info = {
         run: {
