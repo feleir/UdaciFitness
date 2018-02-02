@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native'
 import { getMetricMetaInfo, timeToString, getDailyReminderValue } from '../utils/helpers'
 import { removeEntry, submitEntry } from '../utils/api'
+import { NavigationActions } from 'react-navigation'
 import UdaciSlider from './UdaciSlider'
 import UdaciStepper from './UdaciStepper'
 import DateHeader from './DateHeader'
@@ -75,7 +76,8 @@ class AddEntry extends Component {
             sleep: 0,
             eat: 0
         }))
-        // Navigate to home
+        
+        this.toHome()
 
         submitEntry({ key, entry })
 
@@ -89,10 +91,14 @@ class AddEntry extends Component {
             [key]: getDailyReminderValue()
         }))
 
+        this.toHome()
         removeEntry(key)
     }
        
-
+    toHome = () => {
+        this.props.navigation.dispatch(NavigationActions.back({key: 'AddEntry'}))
+    }
+       
     render() {
         const metaInfo = getMetricMetaInfo()
 
